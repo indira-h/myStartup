@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  MY START-UP – WEBSITE TEMPLATE
+  Datei: juristerei/index.html
+  -----------------------------------------------------------------------------
+  Übersichtsseite für alle rechtlichen Themen gemäss Modulbeschreibung:
+  Datenschutz, Urheberrecht, Werberecht, Arbeitsrecht, Markenrecht, KI &
+  Social Media, Kundenverträge, Arbeitsverträge, Impressum, AGB.
+
+  Die drei gesetzlich meist notwendigen Seiten (Impressum, Datenschutz, AGB)
+  sind als EIGENE HTML-Dateien im selben Ordner angelegt, weil sie oft aus
+  dem Footer JEDER Seite verlinkt werden müssen:
+    - juristerei/impressum.html
+    - juristerei/datenschutz.html
+    - juristerei/agb.html
+  Die übrigen Themen (Urheberrecht, KI & Social Media, Verträge, ...) sind
+  hier direkt als Abschnitte auf dieser Übersichtsseite aufgeführt. Wer will,
+  kann daraus ebenfalls eigene Unterseiten machen (Kopiervorlage: eine der
+  drei HTML-Dateien oben duplizieren und Inhalt anpassen).
+  =============================================================================
+-->
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      var stored = localStorage.getItem("my-startup-theme");
+      var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juristerei – My Start-Up</title>
+  <meta name="description" content="Rechtliche Themen von My Start-Up: Datenschutz, Urheberrecht, Impressum, AGB und mehr." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="brand">
+        <span class="brand__name">My Start-Up</span>
+        <span class="brand__claim">Just do it</span>
+      </a>
+
+      <nav class="main-nav" id="main-navigation" data-main-nav data-open="false" aria-label="Hauptnavigation">
+        <a href="../index.html">Home</a>
+        <a href="../team/index.html">Team</a>
+        <a href="../business-model/index.html">Business Model</a>
+        <a href="index.html">Juristerei</a>
+        <a href="../marketing-sales/index.html">Marketing &amp; Sales</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Zu Dark-Mode wechseln">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero container">
+      <span class="eyebrow">Juristerei</span>
+      <!-- ANPASSEN -->
+      <h1 class="page-hero__title">Rechtliche Grundlagen</h1>
+      <p class="page-hero__lead">Alle rechtlichen Rahmenbedingungen rund um My Start-Up – von den gesetzlichen Pflichtseiten bis zu internen Vertragsthemen.</p>
+    </section>
+
+    <!-- ===================== PFLICHTSEITEN ===================== -->
+    <section class="section container">
+      <div class="section-heading">
+        <span class="eyebrow">Gesetzliche Pflichtangaben</span>
+        <h2>Impressum, Datenschutz &amp; AGB</h2>
+      </div>
+      <div class="grid legal-nav">
+        <a class="folder-card" href="impressum.html">
+          <h3 class="folder-card__title">Impressum</h3>
+          <p class="folder-card__desc">Anbieterkennzeichnung: wer betreibt diese Website, Kontaktangaben.</p>
+        </a>
+        <a class="folder-card" href="datenschutz.html">
+          <h3 class="folder-card__title">Datenschutzerklärung</h3>
+          <p class="folder-card__desc">Welche Daten werden erhoben, wie werden sie verarbeitet und geschützt.</p>
+        </a>
+        <a class="folder-card" href="agb.html">
+          <h3 class="folder-card__title">AGB</h3>
+          <p class="folder-card__desc">Allgemeine Geschäftsbedingungen für Kund:innen von My Start-Up.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== WEITERE RECHTSTHEMEN ===================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Weitere Themen</span>
+          <h2>Rechtliche Fragethemen im Überblick</h2>
+        </div>
+        <!-- ANPASSEN: Ersetzt die Platzhaltertexte durch eure eigenen
+             Ausarbeitungen zu den im Modul verlangten Rechtsthemen. Bei
+             Bedarf könnt ihr aus jedem dieser Punkte auch eine eigene
+             Unterseite machen (Kopiervorlage: impressum.html duplizieren). -->
+        <ul class="grid legal-topic-list">
+          <li class="card">
+            <h3>Urheberrecht / Copyright &amp; Lizenzen</h3>
+            <p>Welche Bilder, Texte, Musik nutzt ihr und woher stammen die Nutzungsrechte?</p>
+          </li>
+          <li class="card">
+            <h3>KI &amp; Social Media</h3>
+            <p>Regeln zum Einsatz von KI-Tools und zur Nutzung eurer Social-Media-Kanäle.</p>
+          </li>
+          <li class="card">
+            <h3>Kundenverträge</h3>
+            <p>Grundzüge eurer Verträge mit Kund:innen (Leistungen, Zahlung, Haftung).</p>
+          </li>
+          <li class="card">
+            <h3>Arbeitsverträge</h3>
+            <p>Grundzüge eurer Verträge mit Mitarbeitenden im Team.</p>
+          </li>
+          <li class="card">
+            <h3>Markenrecht</h3>
+            <p>Ist euer Firmen-/Produktname geschützt oder schützbar (Markenrecherche)?</p>
+          </li>
+          <li class="card">
+            <h3>Werberecht</h3>
+            <p>Welche rechtlichen Grenzen gelten für eure Werbung (z. B. Vergleiche, Kennzeichnungspflichten)?</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid footer-grid">
+        <div class="footer-col">
+          <h3>My Start-Up</h3>
+          <p>Just do it — [hier ein bis zwei Sätze über eure Firma für den Footer einfügen].</p>
+        </div>
+        <div class="footer-col">
+          <h3>Bereiche</h3>
+          <ul>
+            <li><a href="../team/index.html">Team</a></li>
+            <li><a href="../business-model/index.html">Business Model</a></li>
+            <li><a href="../juristerei/index.html">Juristerei</a></li>
+            <li><a href="../marketing-sales/index.html">Marketing &amp; Sales</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">© <span data-current-year>2026</span> My Start-Up. Alle Rechte vorbehalten.</p>
+        <p class="mb-0">Website-Vorlage erstellt im Modul „My Start-Up" – FH Graubünden</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" data-video-modal hidden>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-label="Video-Player">
+      <button type="button" class="modal__close" data-modal-close aria-label="Video schliessen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal__video-wrapper">
+        <iframe src="" title="Video-Player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

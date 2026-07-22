@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  MY START-UP – WEBSITE TEMPLATE
+  Datei: business-model/index.html
+  -----------------------------------------------------------------------------
+  Entspricht der Ordner-Kachel "Business Model". Fachlich passend gemäss
+  Modulbeschreibung: Geschäftsmodell, Finanzierung, Buchhaltung, Controlling.
+  =============================================================================
+-->
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      var stored = localStorage.getItem("my-startup-theme");
+      var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Model – My Start-Up</title>
+  <meta name="description" content="Geschäftsmodell, Finanzierung und Zahlen von My Start-Up." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="brand">
+        <span class="brand__name">My Start-Up</span>
+        <span class="brand__claim">Just do it</span>
+      </a>
+
+      <nav class="main-nav" id="main-navigation" data-main-nav data-open="false" aria-label="Hauptnavigation">
+        <a href="../index.html">Home</a>
+        <a href="../team/index.html">Team</a>
+        <a href="index.html">Business Model</a>
+        <a href="../juristerei/index.html">Juristerei</a>
+        <a href="../marketing-sales/index.html">Marketing &amp; Sales</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Zu Dark-Mode wechseln">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero container">
+      <span class="eyebrow">Business Model</span>
+      <!-- ANPASSEN -->
+      <h1 class="page-hero__title">Unser Geschäftsmodell</h1>
+      <p class="page-hero__lead">Beschreibt hier kurz, wie eure Firma Wert schafft, an wen sie sich richtet und wie sie damit Geld verdient.</p>
+    </section>
+
+    <!-- ===================== BUSINESS MODEL CANVAS (9 Bausteine) ===================== -->
+    <section class="section container">
+      <div class="section-heading">
+        <span class="eyebrow">Übersicht</span>
+        <h2>Business Model Canvas</h2>
+      </div>
+      <!-- ANPASSEN: Füllt die 9 klassischen Canvas-Bausteine mit euren
+           Inhalten. Ihr könnt Karten löschen/hinzufügen, falls euer Modell
+           anders strukturiert ist (z. B. Lean Canvas). -->
+      <div class="grid content-grid-3">
+        <div class="card">
+          <h3>Wertversprechen (Value Proposition)</h3>
+          <p>Welches Problem löst ihr, welchen Nutzen bietet ihr euren Kund:innen?</p>
+        </div>
+        <div class="card">
+          <h3>Kundensegmente</h3>
+          <p>Für wen ist euer Angebot? Beschreibt eure Zielgruppe(n).</p>
+        </div>
+        <div class="card">
+          <h3>Vertriebskanäle</h3>
+          <p>Wie erreicht ihr eure Kund:innen (online, offline, Partner)?</p>
+        </div>
+        <div class="card">
+          <h3>Kundenbeziehungen</h3>
+          <p>Wie gestaltet ihr die Beziehung zu euren Kund:innen?</p>
+        </div>
+        <div class="card">
+          <h3>Einnahmequellen</h3>
+          <p>Womit verdient ihr Geld (Verkauf, Abo, Provision, ...)?</p>
+        </div>
+        <div class="card">
+          <h3>Schlüsselressourcen</h3>
+          <p>Welche Ressourcen braucht ihr zwingend (Personal, Technik, Kapital)?</p>
+        </div>
+        <div class="card">
+          <h3>Schlüsselaktivitäten</h3>
+          <p>Welche Tätigkeiten sind für euer Geschäftsmodell zentral?</p>
+        </div>
+        <div class="card">
+          <h3>Schlüsselpartnerschaften</h3>
+          <p>Wer sind wichtige Partner, Lieferanten oder Netzwerke?</p>
+        </div>
+        <div class="card">
+          <h3>Kostenstruktur</h3>
+          <p>Welches sind eure grössten Kostenblöcke?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FINANZIERUNG, BUCHHALTUNG, CONTROLLING ===================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Zahlen &amp; Planung</span>
+          <h2>Finanzierung, Buchhaltung &amp; Controlling</h2>
+        </div>
+        <!-- ANPASSEN -->
+        <div class="grid content-grid-3">
+          <div class="card">
+            <h3>Finanzierung</h3>
+            <p>Eigenkapital, Fremdkapital, Förderungen: Wie finanziert ihr den Start eurer Firma?</p>
+          </div>
+          <div class="card">
+            <h3>Buchhaltung</h3>
+            <p>Kurzer Überblick über euer Buchhaltungskonzept (Tool, Prozess, Zuständigkeit).</p>
+          </div>
+          <div class="card">
+            <h3>Controlling</h3>
+            <p>Welche Kennzahlen (KPIs) überwacht ihr, um den Erfolg zu messen?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid footer-grid">
+        <div class="footer-col">
+          <h3>My Start-Up</h3>
+          <p>Just do it — [hier ein bis zwei Sätze über eure Firma für den Footer einfügen].</p>
+        </div>
+        <div class="footer-col">
+          <h3>Bereiche</h3>
+          <ul>
+            <li><a href="../team/index.html">Team</a></li>
+            <li><a href="../business-model/index.html">Business Model</a></li>
+            <li><a href="../juristerei/index.html">Juristerei</a></li>
+            <li><a href="../marketing-sales/index.html">Marketing &amp; Sales</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="../juristerei/impressum.html">Impressum</a></li>
+            <li><a href="../juristerei/datenschutz.html">Datenschutz</a></li>
+            <li><a href="../juristerei/agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">© <span data-current-year>2026</span> My Start-Up. Alle Rechte vorbehalten.</p>
+        <p class="mb-0">Website-Vorlage erstellt im Modul „My Start-Up" – FH Graubünden</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" data-video-modal hidden>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-label="Video-Player">
+      <button type="button" class="modal__close" data-modal-close aria-label="Video schliessen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal__video-wrapper">
+        <iframe src="" title="Video-Player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

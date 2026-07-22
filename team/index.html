@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  MY START-UP – WEBSITE TEMPLATE
+  Datei: team/index.html
+  -----------------------------------------------------------------------------
+  Diese Seite entspricht der Ordner-Kachel "Team" auf der Startseite.
+  Zeigt die Mitglieder eurer 4er-Gruppe mit Foto, Name, Rolle und Kurzprofil.
+
+  Alle Pfade zu CSS/JS/anderen Seiten beginnen hier mit "../", weil diese
+  Datei eine Ebene tiefer liegt als index.html im Hauptordner.
+  =============================================================================
+-->
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      var stored = localStorage.getItem("my-startup-theme");
+      var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team – My Start-Up</title>
+  <meta name="description" content="Lernt das Gründungsteam von My Start-Up kennen." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="brand">
+        <span class="brand__name">My Start-Up</span>
+        <span class="brand__claim">Just do it</span>
+      </a>
+
+      <nav class="main-nav" id="main-navigation" data-main-nav data-open="false" aria-label="Hauptnavigation">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Team</a>
+        <a href="../business-model/index.html">Business Model</a>
+        <a href="../juristerei/index.html">Juristerei</a>
+        <a href="../marketing-sales/index.html">Marketing &amp; Sales</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Zu Dark-Mode wechseln">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero container">
+      <span class="eyebrow">Team</span>
+      <!-- ANPASSEN: Titel und Einleitungstext -->
+      <h1 class="page-hero__title">Das Team hinter My Start-Up</h1>
+      <p class="page-hero__lead">Stellt euch hier als Gründungsteam vor: Wer seid ihr, was bringt ihr mit und warum ist genau euer Team das richtige, um diese Firma aufzubauen?</p>
+    </section>
+
+    <section class="section container">
+      <!-- ANPASSEN: Pro Teammitglied eine .team-card. Kopiert den ganzen
+           <div class="card team-card"> ... </div>-Block für weitere
+           Mitglieder oder löscht überzählige Karten, falls ihr weniger als
+           vier seid. -->
+      <div class="grid team-grid">
+        <div class="card team-card">
+          <div class="team-card__photo">
+            <!-- ANPASSEN: Portrait-Foto einfügen, z. B.
+                 <img src="../images/team-vorname-nachname.jpg" alt="Portrait von [Name]"> -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h2 class="team-card__name">Vorname Nachname</h2>
+          <p class="team-card__role">Rolle / Funktion</p>
+          <p>Kurzes Profil: Ausbildung, Erfahrung oder Stärken, die für die Firma relevant sind.</p>
+        </div>
+
+        <div class="card team-card">
+          <div class="team-card__photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h2 class="team-card__name">Vorname Nachname</h2>
+          <p class="team-card__role">Rolle / Funktion</p>
+          <p>Kurzes Profil: Ausbildung, Erfahrung oder Stärken, die für die Firma relevant sind.</p>
+        </div>
+
+        <div class="card team-card">
+          <div class="team-card__photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h2 class="team-card__name">Vorname Nachname</h2>
+          <p class="team-card__role">Rolle / Funktion</p>
+          <p>Kurzes Profil: Ausbildung, Erfahrung oder Stärken, die für die Firma relevant sind.</p>
+        </div>
+
+        <div class="card team-card">
+          <div class="team-card__photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h2 class="team-card__name">Vorname Nachname</h2>
+          <p class="team-card__role">Rolle / Funktion</p>
+          <p>Kurzes Profil: Ausbildung, Erfahrung oder Stärken, die für die Firma relevant sind.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Warum wir</span>
+          <h2>Unsere Werte &amp; Arbeitsweise</h2>
+        </div>
+        <!-- ANPASSEN: z. B. Teamwerte, Arbeitsweise, Kommunikationsregeln -->
+        <div class="grid content-grid-3">
+          <div class="card">
+            <h3>Wert 1</h3>
+            <p>Kurze Beschreibung, wofür euer Team steht.</p>
+          </div>
+          <div class="card">
+            <h3>Wert 2</h3>
+            <p>Kurze Beschreibung, wofür euer Team steht.</p>
+          </div>
+          <div class="card">
+            <h3>Wert 3</h3>
+            <p>Kurze Beschreibung, wofür euer Team steht.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid footer-grid">
+        <div class="footer-col">
+          <h3>My Start-Up</h3>
+          <p>Just do it — [hier ein bis zwei Sätze über eure Firma für den Footer einfügen].</p>
+        </div>
+        <div class="footer-col">
+          <h3>Bereiche</h3>
+          <ul>
+            <li><a href="../team/index.html">Team</a></li>
+            <li><a href="../business-model/index.html">Business Model</a></li>
+            <li><a href="../juristerei/index.html">Juristerei</a></li>
+            <li><a href="../marketing-sales/index.html">Marketing &amp; Sales</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="../juristerei/impressum.html">Impressum</a></li>
+            <li><a href="../juristerei/datenschutz.html">Datenschutz</a></li>
+            <li><a href="../juristerei/agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">© <span data-current-year>2026</span> My Start-Up. Alle Rechte vorbehalten.</p>
+        <p class="mb-0">Website-Vorlage erstellt im Modul „My Start-Up" – FH Graubünden</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" data-video-modal hidden>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-label="Video-Player">
+      <button type="button" class="modal__close" data-modal-close aria-label="Video schliessen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal__video-wrapper">
+        <iframe src="" title="Video-Player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

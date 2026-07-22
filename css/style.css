@@ -1,0 +1,977 @@
+/* =============================================================================
+   MY START-UP – WEBSITE TEMPLATE
+   Stylesheet: css/style.css
+   -----------------------------------------------------------------------------
+   Dies ist die EINZIGE CSS-Datei des Projekts. Sie gilt für alle HTML-Seiten
+   (index.html im Hauptordner sowie alle index.html-Dateien in den Unterordnern
+   team/, business-model/, juristerei/, marketing-sales/).
+
+   AUFBAU DIESER DATEI (Inhaltsverzeichnis):
+     1. Google Fonts Import (optional)
+     2. Design-Tokens / CSS-Variablen  <-- WICHTIGSTER ABSCHNITT FÜR ANPASSUNGEN
+     3. Reset & Grundformatierung
+     4. Typografie
+     5. Layout-Hilfsklassen (Container, Grid, Sections)
+     6. Header & Navigation
+     7. Buttons & Links
+     8. Hero-Bereich (Titel & Claim)
+     9. Bereichs-Karten (Team / Business Model / Juristerei / Marketing & Sales)
+    10. Mood Board & Video-Thumbnails
+    11. Video-Modal (Lightbox)
+    12. Inhalts-Karten (Team-Mitglieder, generische Cards)
+    13. Formulare
+    14. Footer
+    15. Utility-Klassen
+    16. Responsive Anpassungen (Mobile / Tablet / Desktop)
+
+   TIPP FÜR STUDIERENDE: Wer nur schnell "die Firmenfarbe" ändern möchte,
+   muss NUR Abschnitt 2 (Design-Tokens) anpassen – der Rest der Website
+   reagiert automatisch darauf, weil überall mit var(--...) gearbeitet wird.
+   ========================================================================== */
+
+
+/* -----------------------------------------------------------------------------
+   1. GOOGLE FONTS (optional)
+   -----------------------------------------------------------------------------
+   Standardmässig werden Systemschriften verwendet (kein Ladezeit-Nachteil).
+   Wer eine Google Font möchte: In JEDER HTML-Datei im <head> folgenden Link
+   VOR dieser CSS-Datei einfügen, z. B.:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+   und danach unten bei --font-heading / --font-body den Namen eintragen.
+   -------------------------------------------------------------------------- */
+
+
+/* -----------------------------------------------------------------------------
+   2. DESIGN-TOKENS / CSS-VARIABLEN
+   -----------------------------------------------------------------------------
+   Hier definiert ihr die Corporate-Identity eurer Firma: Farben, Schriften,
+   Abstände, Rundungen. ÄNDERT NUR DIE WERTE HIER – nicht die Variablennamen,
+   sonst funktioniert der Rest des Stylesheets nicht mehr.
+   -------------------------------------------------------------------------- */
+:root {
+  /* --- Markenfarben: HIER die Farben eurer Firma eintragen --- */
+  --color-primary: #2563eb;        /* Hauptfarbe, z. B. für Buttons, Links, Akzente */
+  --color-primary-hover: #1d4ed8;  /* etwas dunklere Variante für Hover-Zustände */
+  --color-accent: #f59e0b;         /* Zweitfarbe für Highlights/Badges */
+
+  /* --- Light-Mode-Farben (Standard) --- */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f6fb;         /* leicht abgesetzter Hintergrund, z. B. für Karten-Sektionen */
+  --color-surface: #ffffff;        /* Hintergrund von Karten/Boxen */
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
+  --color-border: #e5e7eb;
+  --color-header-bg: rgba(255, 255, 255, 0.92);
+  --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.08);
+  --shadow-md: 0 8px 24px rgba(17, 24, 39, 0.10);
+
+  /* --- Typografie --- */
+  --font-heading: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* --- Sonstiges Layout --- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --container-width: 1160px;
+  --header-height: 72px;
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+/* --- Dark-Mode-Farben ---
+   Werden aktiv, wenn <html data-theme="dark"> gesetzt ist. Das übernimmt
+   automatisch js/script.js (Umschalter oben rechts + Systemeinstellung).
+   Passt hier die Werte an, falls euer Dark-Mode andere Farbtöne braucht. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f1220;
+    --color-bg-alt: #161a2c;
+    --color-surface: #1b1f33;
+    --color-text: #f3f4f6;
+    --color-text-muted: #b3b8c8;
+    --color-border: #2b3050;
+    --color-header-bg: rgba(15, 18, 32, 0.85);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  }
+}
+
+html[data-theme="dark"] {
+  --color-bg: #0f1220;
+  --color-bg-alt: #161a2c;
+  --color-surface: #1b1f33;
+  --color-text: #f3f4f6;
+  --color-text-muted: #b3b8c8;
+  --color-border: #2b3050;
+  --color-header-bg: rgba(15, 18, 32, 0.85);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
+  --color-border: #e5e7eb;
+  --color-header-bg: rgba(255, 255, 255, 0.92);
+  --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.08);
+  --shadow-md: 0 8px 24px rgba(17, 24, 39, 0.10);
+}
+
+
+/* -----------------------------------------------------------------------------
+   3. RESET & GRUNDFORMATIERUNG
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 16px);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: background-color var(--transition-base), color var(--transition-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+/* Respektiert die Systemeinstellung "reduzierte Bewegung" */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   4. TYPOGRAFIE
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  margin: 0 0 0.6em;
+  color: var(--color-text);
+}
+
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3.25rem); }
+h2 { font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); }
+h3 { font-size: clamp(1.15rem, 1vw + 1rem, 1.5rem); }
+
+p {
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0 0 1em;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.5em;
+}
+
+
+/* -----------------------------------------------------------------------------
+   5. LAYOUT-HILFSKLASSEN
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.section {
+  padding-block: clamp(2.5rem, 5vw, 5rem);
+}
+
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section-heading {
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+
+/* -----------------------------------------------------------------------------
+   6. HEADER & NAVIGATION
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background-color: var(--color-header-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-family: var(--font-heading);
+}
+
+.brand__name {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-text);
+}
+
+.brand__claim {
+  display: none;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.main-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible,
+.main-nav a[aria-current="page"] {
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Theme-Umschalter (Sonne/Mond-Button) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-bg-alt);
+}
+
+.theme-toggle:active {
+  transform: scale(0.92);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Icons: Sonne wird im Light-Mode gezeigt, Mond im Dark-Mode (siehe HTML/JS) */
+.theme-toggle .icon-moon { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: inline-flex; }
+
+/* Mobile Menü-Button (Hamburger) */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.nav-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+
+/* -----------------------------------------------------------------------------
+   7. BUTTONS & LINKS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn--outline {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+
+/* -----------------------------------------------------------------------------
+   8. HERO-BEREICH (Firmenname & Claim, siehe Scribble oberste zwei Balken)
+   -------------------------------------------------------------------------- */
+.hero {
+  padding-block: clamp(2rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.hero__name {
+  margin-bottom: 0.3em;
+}
+
+.hero__claim {
+  font-size: clamp(1.05rem, 1.4vw + 0.8rem, 1.4rem);
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+
+/* -----------------------------------------------------------------------------
+   9. BEREICHS-KARTEN (Team / Business Model / Juristerei / Marketing & Sales)
+   -----------------------------------------------------------------------------
+   Entspricht den vier "Ordner"-Boxen im Scribble direkt unter Titel/Claim.
+   -------------------------------------------------------------------------- */
+.folder-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.folder-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.folder-card:hover,
+.folder-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.folder-card__icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+.folder-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.folder-card__title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.folder-card__desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+
+/* -----------------------------------------------------------------------------
+   10. MOOD BOARD & VIDEO-THUMBNAILS
+   -----------------------------------------------------------------------------
+   Entspricht dem grossen Mood-Board-Feld links und den zwei Video-Thumbnails
+   rechts im Scribble.
+   -------------------------------------------------------------------------- */
+.mood-video-grid {
+  grid-template-columns: 2fr 1fr;
+  align-items: stretch;
+}
+
+.mood-board {
+  position: relative;
+  min-height: 320px;
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--color-border);
+  background-color: var(--color-bg-alt);
+  overflow: hidden;
+}
+
+/* ANPASSEN: Sobald ihr ein eigenes Bild habt, könnt ihr diesen Platzhalter
+   ersetzen, z. B. durch:
+   <img src="../images/moodboard.jpg" alt="Moodboard von [Firmenname]"> */
+.mood-board__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.mood-board__placeholder svg {
+  width: 48px;
+  height: 48px;
+  opacity: 0.6;
+}
+
+.video-thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.video-thumb {
+  position: relative;
+  flex: 1;
+  min-height: 140px;
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--color-border);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+  padding: 1rem;
+  text-align: center;
+}
+
+.video-thumb:hover,
+.video-thumb:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.video-thumb__play {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-thumb__play svg {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* -----------------------------------------------------------------------------
+   11. VIDEO-MODAL (LIGHTBOX)
+   -----------------------------------------------------------------------------
+   Wird per JavaScript (js/script.js) geöffnet, wenn auf ein Video-Thumbnail
+   geklickt wird. Bindet ein YouTube/Vimeo-Video per <iframe> ein.
+   -------------------------------------------------------------------------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.modal__video-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+}
+
+.modal__video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__close svg {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* -----------------------------------------------------------------------------
+   12. INHALTS-KARTEN (Team-Mitglieder, generische Content-Cards)
+   -------------------------------------------------------------------------- */
+.page-hero {
+  padding-block: clamp(2rem, 5vw, 3.5rem) 1.5rem;
+}
+
+.page-hero__title {
+  margin-bottom: 0.4em;
+}
+
+.page-hero__lead {
+  max-width: 720px;
+  font-size: 1.05rem;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.team-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-card__photo {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: var(--color-bg-alt);
+  border: 2px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  overflow: hidden;
+}
+
+.team-card__photo svg {
+  width: 40px;
+  height: 40px;
+}
+
+.team-card__name {
+  margin-bottom: 0.15em;
+}
+
+.team-card__role {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  margin-bottom: 0.6em;
+}
+
+.content-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.content-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.legal-nav {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 2rem;
+}
+
+.legal-topic-list {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.legal-topic-list li {
+  list-style: none;
+}
+
+
+/* -----------------------------------------------------------------------------
+   13. FORMULARE (z. B. für eine spätere Kontaktseite unter Marketing & Sales)
+   -------------------------------------------------------------------------- */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+.form-field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-field input,
+.form-field textarea {
+  font: inherit;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+
+/* -----------------------------------------------------------------------------
+   14. FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg-alt);
+  padding-block: 2.5rem;
+  margin-top: clamp(2.5rem, 5vw, 5rem);
+}
+
+.footer-grid {
+  grid-template-columns: 2fr 1fr 1fr;
+  margin-bottom: 2rem;
+}
+
+.footer-col h3 {
+  font-size: 1rem;
+  margin-bottom: 0.8em;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-col a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-col a:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.footer-bottom a {
+  color: var(--color-text-muted);
+}
+
+
+/* -----------------------------------------------------------------------------
+   15. UTILITY-KLASSEN
+   -------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center { text-align: center; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+
+
+/* -----------------------------------------------------------------------------
+   16. RESPONSIVE ANPASSUNGEN
+   -----------------------------------------------------------------------------
+   Mobile-First-Ansatz: Die Basis-Styles oben gelten für kleine Bildschirme.
+   Ab hier werden für grössere Bildschirme (Tablet/Desktop) mehr Spalten,
+   sichtbare Navigation usw. aktiviert.
+   -------------------------------------------------------------------------- */
+
+/* --- Mobile (Standard, < 640px): Navigation ist ausgeblendet und wird
+   über den Hamburger-Button geöffnet --- */
+.main-nav {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 1rem;
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  transform: translateY(-8px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility var(--transition-base);
+}
+
+.main-nav[data-open="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.main-nav a {
+  padding: 0.9rem 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+}
+
+.folder-grid,
+.team-grid,
+.content-grid-2,
+.content-grid-3,
+.legal-nav,
+.legal-topic-list,
+.footer-grid {
+  grid-template-columns: 1fr;
+}
+
+.mood-video-grid {
+  grid-template-columns: 1fr;
+}
+
+.video-thumbnails {
+  flex-direction: row;
+}
+
+/* --- Tablet (>= 640px) --- */
+@media (min-width: 640px) {
+  .folder-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid,
+  .content-grid-2,
+  .legal-nav,
+  .legal-topic-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Desktop (>= 900px): volle Navigation sichtbar, Hamburger verschwindet --- */
+@media (min-width: 900px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .brand__claim {
+    display: inline;
+  }
+
+  .main-nav {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0;
+    background-color: transparent;
+    border-top: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .main-nav a {
+    border-bottom: none;
+  }
+
+  .folder-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .mood-video-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .video-thumbnails {
+    flex-direction: column;
+  }
+
+  .content-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .legal-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+/* --- Grosse Desktops (>= 1200px) --- */
+@media (min-width: 1200px) {
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

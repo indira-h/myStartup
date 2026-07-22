@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  MY START-UP – WEBSITE TEMPLATE
+  Datei: juristerei/agb.html
+  -----------------------------------------------------------------------------
+  WICHTIGER HINWEIS FÜR STUDIERENDE:
+  Auch dieser Text ist ein PLATZHALTER zu Übungszwecken und KEINE
+  Rechtsberatung. Passt die Paragrafen an euer tatsächliches Angebot
+  (Produkt/Dienstleistung), eure Zahlungs- und Lieferbedingungen sowie
+  Widerrufsrechte an.
+  =============================================================================
+-->
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      var stored = localStorage.getItem("my-startup-theme");
+      var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGB – My Start-Up</title>
+  <meta name="description" content="Allgemeine Geschäftsbedingungen von My Start-Up." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="brand">
+        <span class="brand__name">My Start-Up</span>
+        <span class="brand__claim">Just do it</span>
+      </a>
+
+      <nav class="main-nav" id="main-navigation" data-main-nav data-open="false" aria-label="Hauptnavigation">
+        <a href="../index.html">Home</a>
+        <a href="../team/index.html">Team</a>
+        <a href="../business-model/index.html">Business Model</a>
+        <a href="index.html">Juristerei</a>
+        <a href="../marketing-sales/index.html">Marketing &amp; Sales</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Zu Dark-Mode wechseln">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero container">
+      <span class="eyebrow">Juristerei</span>
+      <h1 class="page-hero__title">Allgemeine Geschäftsbedingungen (AGB)</h1>
+    </section>
+
+    <section class="section container">
+      <div class="card" style="max-width: 720px;">
+        <!-- ANPASSEN: Nummeriert die Paragrafen nach Bedarf um und passt
+             Inhalte an euer Produkt/eure Dienstleistung an. -->
+        <h2>§ 1 Geltungsbereich</h2>
+        <p>Diese AGB gelten für alle Verträge zwischen [Firmenname] und ihren Kund:innen über die auf dieser Website angebotenen Leistungen.</p>
+
+        <h2>§ 2 Vertragsschluss</h2>
+        <p>[Beschreibt, wie ein Vertrag zwischen euch und der Kundschaft zustande kommt, z. B. durch Bestellung im Shop oder Unterzeichnung eines Angebots.]</p>
+
+        <h2>§ 3 Preise &amp; Zahlungsbedingungen</h2>
+        <p>[Beschreibt eure Preise, Zahlungsmethoden und -fristen.]</p>
+
+        <h2>§ 4 Lieferung / Leistungserbringung</h2>
+        <p>[Beschreibt, wie und wann ihr liefert bzw. eure Dienstleistung erbringt.]</p>
+
+        <h2>§ 5 Widerrufsrecht</h2>
+        <p>[Beschreibt, ob und unter welchen Bedingungen ein Widerruf möglich ist.]</p>
+
+        <h2>§ 6 Haftung</h2>
+        <p>[Beschreibt Haftungsbeschränkungen, soweit gesetzlich zulässig.]</p>
+
+        <h2>§ 7 Schlussbestimmungen</h2>
+        <p>Es gilt das Recht von [Land]. Gerichtsstand ist, soweit gesetzlich zulässig, [Ort].</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid footer-grid">
+        <div class="footer-col">
+          <h3>My Start-Up</h3>
+          <p>Just do it — [hier ein bis zwei Sätze über eure Firma für den Footer einfügen].</p>
+        </div>
+        <div class="footer-col">
+          <h3>Bereiche</h3>
+          <ul>
+            <li><a href="../team/index.html">Team</a></li>
+            <li><a href="../business-model/index.html">Business Model</a></li>
+            <li><a href="../juristerei/index.html">Juristerei</a></li>
+            <li><a href="../marketing-sales/index.html">Marketing &amp; Sales</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">© <span data-current-year>2026</span> My Start-Up. Alle Rechte vorbehalten.</p>
+        <p class="mb-0">Website-Vorlage erstellt im Modul „My Start-Up" – FH Graubünden</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" data-video-modal hidden>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-label="Video-Player">
+      <button type="button" class="modal__close" data-modal-close aria-label="Video schliessen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal__video-wrapper">
+        <iframe src="" title="Video-Player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
