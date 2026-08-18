@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="mystartup" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="im1/codeanddesign">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$/../../../../Lehre/Themen/IM1 HTML_CSS_JS HS25/website" web="/www/im1.codeanddesign.ch" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mystartup">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/www/test.codeanddesign.ch" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

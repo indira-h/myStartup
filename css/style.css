@@ -672,6 +672,18 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: inline-flex; }
   box-shadow: var(--shadow-sm);
 }
 
+.download-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.download-links .btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
 .team-grid {
   grid-template-columns: repeat(4, 1fr);
 }

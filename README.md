@@ -29,6 +29,10 @@ myStartup/
 │   └── agb.html                   Allgemeine Geschäftsbedingungen
 ├── marketing-sales/
 │   └── index.html                 Marketing-&-Sales-Seite (Branding, Massnahmen, Sales, Markttests)
+├── downloads/                     Word-/PDF-Vorlagen zum Download (siehe unten), je Unterordner pro Bereich
+│   ├── business-model/
+│   ├── juristerei/
+│   └── marketing-sales/
 ├── css/
 │   └── style.css                  EINZIGES Stylesheet für alle Seiten
 ├── js/
@@ -104,7 +108,45 @@ sind als Übersichtskarten in `juristerei/index.html` vorbereitet – ihr
 könnt sie dort direkt ausformulieren oder nach demselben Muster wie
 `impressum.html` zu eigenen Unterseiten ausbauen.
 
-### 4. Navigation erweitern
+### 4. Downloads-Vorlagen → `downloads/`
+
+Auf `business-model/index.html`, `juristerei/index.html` und
+`marketing-sales/index.html` steht direkt unter dem Seitentitel (Page-Hero)
+ein Abschnitt **„Downloads“**. Er verlinkt pro Inhaltsabschnitt der Seite
+je eine Word- (`.docx`) und eine PDF-Vorlage aus dem Ordner `downloads/`,
+mit der die Gruppe die Inhalte auch offline ausarbeiten und für die
+Abgabe/Präsentation nutzen kann. Die Dateien liegen passend zum Bereich in
+`downloads/business-model/`, `downloads/juristerei/` bzw.
+`downloads/marketing-sales/`.
+
+So passt ihr das an:
+
+- **Inhalt der Vorlagen**: Die mitgelieferten `.docx`/`.pdf`-Dateien sind
+  Platzhalter mit denselben Leitfragen wie auf der jeweiligen Website-Seite
+  und Freiraum zum Ausfüllen. Ersetzt sie einfach durch eure eigenen,
+  ausgefüllten Word- bzw. PDF-Dokumente – **Dateiname und Speicherort
+  beibehalten**, dann funktionieren die bestehenden Download-Links weiter.
+- **Neue/andere Vorlage hinzufügen**: Datei in den passenden Unterordner von
+  `downloads/` legen und im Downloads-Abschnitt der jeweiligen `index.html`
+  eine neue `.card` mit zwei Links (`.docx` und `.pdf`) nach vorhandenem
+  Muster ergänzen:
+  ```html
+  <div class="card">
+    <h3>Titel des Abschnitts</h3>
+    <p>Kurzbeschreibung der Vorlage.</p>
+    <div class="download-links">
+      <a class="btn btn--outline" href="../downloads/<bereich>/<datei>.docx" download>Word (.docx)</a>
+      <a class="btn btn--outline" href="../downloads/<bereich>/<datei>.pdf" download>PDF</a>
+    </div>
+  </div>
+  ```
+- **Vorlage entfernen**: entsprechende `.card` im Downloads-Abschnitt
+  löschen und die zugehörigen Dateien aus `downloads/` entfernen.
+- Das Styling der Download-Buttons (`.download-links`, `.btn`,
+  `.btn--outline`) steckt in `css/style.css` und passt sich automatisch an
+  Light-/Dark-Mode an – hier ist normalerweise nichts anzupassen.
+
+### 5. Navigation erweitern
 
 Um eine neue Seite hinzuzufügen:
 
