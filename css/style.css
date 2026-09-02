@@ -50,25 +50,25 @@
    sonst funktioniert der Rest des Stylesheets nicht mehr.
    -------------------------------------------------------------------------- */
 :root {
-  /* --- Markenfarben: HIER die Farben eurer Firma eintragen --- */
-  --color-primary: #a51d32;        /* Hauptfarbe, z. B. für Buttons, Links, Akzente */
-  --color-primary-hover: #670917;  /* etwas dunklere Variante für Hover-Zustände */
-  --color-accent: #231f20;         /* Zweitfarbe für Highlights/Badges */
+  /* --- Markenfarben: Grenzwertig --- */
+  --color-primary: #a51d32;        /* Hauptfarbe: Buttons, Links, Akzente */
+  --color-primary-hover: #7c1526;  /* dunkleres Rot für Hover-Zustände */
+  --color-accent: #231f20;         /* Zweitfarbe (Schwarz) für Highlights/Badges */
 
   /* --- Light-Mode-Farben (Standard) --- */
   --color-bg: #ffffff;
-  --color-bg-alt: #f4f6fb;         /* leicht abgesetzter Hintergrund, z. B. für Karten-Sektionen */
-  --color-surface: #ffffff;        /* Hintergrund von Karten/Boxen */
+  --color-bg-alt: #f7f4f4;
+  --color-surface: #ffffff;
   --color-text: #231f20;
-  --color-text-muted: #4f0606;
-  --color-border: #dbcfcf;
+  --color-text-muted: #6b6465;
+  --color-border: #e5dcdd;
   --color-header-bg: rgba(255, 255, 255, 0.92);
-  --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.08);
-  --shadow-md: 0 8px 24px rgba(17, 24, 39, 0.10);
+  --shadow-sm: 0 1px 3px rgba(35, 31, 32, 0.08);
+  --shadow-md: 0 8px 24px rgba(35, 31, 32, 0.10);
 
   /* --- Typografie --- */
-  --font-heading: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Archivo Black", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
 
   /* --- Sonstiges Layout --- */
   --radius-sm: 6px;
@@ -81,45 +81,49 @@
 }
 
 /* --- Dark-Mode-Farben ---
-   Werden aktiv, wenn <html data-theme="dark"> gesetzt ist. Das übernimmt
-   automatisch js/script.js (Umschalter oben rechts + Systemeinstellung).
-   Passt hier die Werte an, falls euer Dark-Mode andere Farbtöne braucht. */
+   Werden aktiv, wenn <html data-theme="dark"> gesetzt ist (js/script.js). */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #000000;
-    --color-bg-alt: #161a2c;
-    --color-surface: #1b1f33;
+    --color-primary-hover: #c2394d;
+    --color-accent: #ffffff;
+    --color-bg: #231f20;
+    --color-bg-alt: #2c2728;
+    --color-surface: #2c2728;
     --color-text: #ffffff;
-    --color-text-muted: #dbcfcf;
-    --color-border: #000000;
-    --color-header-bg: rgba(15, 18, 32, 0.85);
+    --color-text-muted: #cbc3c4;
+    --color-border: #453f40;
+    --color-header-bg: rgba(35, 31, 32, 0.9);
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
   }
 }
 
 html[data-theme="dark"] {
-  --color-bg: #0f1220;
-  --color-bg-alt: #161a2c;
-  --color-surface: #1b1f33;
-  --color-text: #f3f4f6;
-  --color-text-muted: #b3b8c8;
-  --color-border: #2b3050;
-  --color-header-bg: rgba(15, 18, 32, 0.85);
+  --color-primary-hover: #c2394d;
+  --color-accent: #ffffff;
+  --color-bg: #231f20;
+  --color-bg-alt: #2c2728;
+  --color-surface: #2c2728;
+  --color-text: #ffffff;
+  --color-text-muted: #cbc3c4;
+  --color-border: #453f40;
+  --color-header-bg: rgba(35, 31, 32, 0.9);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 html[data-theme="light"] {
+  --color-primary-hover: #7c1526;
+  --color-accent: #231f20;
   --color-bg: #ffffff;
-  --color-bg-alt: #f4f6fb;
+  --color-bg-alt: #f7f4f4;
   --color-surface: #ffffff;
-  --color-text: #111827;
-  --color-text-muted: #4b5563;
-  --color-border: #e5e7eb;
+  --color-text: #231f20;
+  --color-text-muted: #6b6465;
+  --color-border: #e5dcdd;
   --color-header-bg: rgba(255, 255, 255, 0.92);
-  --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.08);
-  --shadow-md: 0 8px 24px rgba(17, 24, 39, 0.10);
+  --shadow-sm: 0 1px 3px rgba(35, 31, 32, 0.08);
+  --shadow-md: 0 8px 24px rgba(35, 31, 32, 0.10);
 }
 
 
