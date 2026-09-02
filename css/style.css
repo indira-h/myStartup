@@ -86,12 +86,12 @@
    Passt hier die Werte an, falls euer Dark-Mode andere Farbtöne braucht. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #231f20;
+    --color-bg: #000000;
     --color-bg-alt: #161a2c;
     --color-surface: #1b1f33;
     --color-text: #ffffff;
     --color-text-muted: #dbcfcf;
-    --color-border: #231f20;
+    --color-border: #000000;
     --color-header-bg: rgba(15, 18, 32, 0.85);
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
