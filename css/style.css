@@ -51,17 +51,17 @@
    -------------------------------------------------------------------------- */
 :root {
   /* --- Markenfarben: HIER die Farben eurer Firma eintragen --- */
-  --color-primary: #2563eb;        /* Hauptfarbe, z. B. für Buttons, Links, Akzente */
-  --color-primary-hover: #1d4ed8;  /* etwas dunklere Variante für Hover-Zustände */
-  --color-accent: #f59e0b;         /* Zweitfarbe für Highlights/Badges */
+  --color-primary: #a51d32;        /* Hauptfarbe, z. B. für Buttons, Links, Akzente */
+  --color-primary-hover: #670917;  /* etwas dunklere Variante für Hover-Zustände */
+  --color-accent: #231f20;         /* Zweitfarbe für Highlights/Badges */
 
   /* --- Light-Mode-Farben (Standard) --- */
   --color-bg: #ffffff;
   --color-bg-alt: #f4f6fb;         /* leicht abgesetzter Hintergrund, z. B. für Karten-Sektionen */
   --color-surface: #ffffff;        /* Hintergrund von Karten/Boxen */
-  --color-text: #111827;
-  --color-text-muted: #4b5563;
-  --color-border: #e5e7eb;
+  --color-text: #231f20;
+  --color-text-muted: #4f0606;
+  --color-border: #dbcfcf;
   --color-header-bg: rgba(255, 255, 255, 0.92);
   --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.08);
   --shadow-md: 0 8px 24px rgba(17, 24, 39, 0.10);
@@ -86,12 +86,12 @@
    Passt hier die Werte an, falls euer Dark-Mode andere Farbtöne braucht. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #0f1220;
+    --color-bg: #231f20;
     --color-bg-alt: #161a2c;
     --color-surface: #1b1f33;
-    --color-text: #f3f4f6;
-    --color-text-muted: #b3b8c8;
-    --color-border: #2b3050;
+    --color-text: #ffffff;
+    --color-text-muted: #dbcfcf;
+    --color-border: #231f20;
     --color-header-bg: rgba(15, 18, 32, 0.85);
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
