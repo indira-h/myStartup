@@ -107,9 +107,8 @@
   <main id="main">
     <!-- ===================== HERO: FIRMENNAME & CLAIM ===================== -->
     <section class="hero container">
-      <!-- ANPASSEN: Firmenname und Claim/Slogan eurer Firma -->
-      <h1 class="hero__name">Grenzwertig</h1>
-      <p class="hero__claim">Wo Grenzen Wert bekommen.</p>
+      <img src="images/logo-light.png" alt="Grenzwertig – wo Grenzen Wert bekommen" class="hero__logo hero__logo--light">
+      <img src="images/logo-dark.png" alt="Grenzwertig – wo Grenzen Wert bekommen" class="hero__logo hero__logo--dark">
     </section>
 
 <!-- ===================== 4 ORDNER-KACHELN ===================== -->
@@ -170,43 +169,32 @@
     <section class="section section--alt">
       <div class="container">
         <div class="grid mood-video-grid">
-          <!-- ANPASSEN: Mood Board = ein Foto/eine Bildcollage, die eure Firma
-               visuell repräsentiert (Stimmung, Farben, Stil). Sobald ihr ein
-               Bild habt, könnt ihr den kompletten Inhalt von
-               .mood-board__placeholder durch z. B.
-               <img src="images/moodboard.jpg" alt="Moodboard von My Start-Up">
-               ersetzen. -->
           <div class="mood-board">
-            <div class="mood-board__placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-              </svg>
-              <p class="mb-0"><strong>Mood Board</strong><br />Platzhalter – ersetzt dieses Feld mit einem Foto/einer Illustration, die eure Firma repräsentiert.</p>
-            </div>
+            <button type="button" class="mood-board__trigger" data-image-trigger data-image-src="images/moodboard.jpeg" data-image-alt="Moodboard von Grenzwertig" aria-label="Moodboard vergrössern">
+              <img src="images/moodboard.jpeg" alt="Moodboard von Grenzwertig" class="mood-board__image">
+            </button>
           </div>
 
-          <!-- ANPASSEN: Für jedes Video die YouTube-Video-ID im Attribut
-               data-video-id eintragen (siehe Anleitung in js/script.js,
-               Abschnitt 3). Bis dahin zeigt ein Klick nur einen Hinweis an. -->
+          <!-- ANPASSEN: data-video-id durch eure echten YouTube-Video-IDs ersetzen
+               (der Teil der URL nach v=, z. B. bei
+               https://www.youtube.com/watch?v=dQw4w9WgXcQ ist die ID dQw4w9WgXcQ) -->
           <div class="video-thumbnails">
-            <button type="button" class="video-thumb" data-video-thumb data-video-id="VIDEO_ID_HIER">
+            <a href="https://www.youtube.com/watch?v=BcW118R4zso" target="_blank" rel="noopener noreferrer" class="video-thumb">
               <span class="video-thumb__play">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
               </span>
-              Thumbnail Video 1
-            </button>
-            <button type="button" class="video-thumb" data-video-thumb data-video-id="VIDEO_ID_HIER">
+              Social-Media-Reel
+            </a>
+            <a href="https://www.youtube.com/watch?v=DEINE_ZWEITE_ID" target="_blank" rel="noopener noreferrer" class="video-thumb">
               <span class="video-thumb__play">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
               </span>
-              Thumbnail Video 2
-            </button>
+              Imagevideo
+            </a>
           </div>
         </div>
       </div>
@@ -247,18 +235,16 @@
     </div>
   </footer>
 
-  <!-- ===================== VIDEO-MODAL (Lightbox) ===================== -->
-  <div class="modal" data-video-modal hidden>
-    <div class="modal__dialog" role="dialog" aria-modal="true" aria-label="Video-Player">
-      <button type="button" class="modal__close" data-modal-close aria-label="Video schliessen">
+  <!-- ===================== BILD-MODAL (Lightbox für Mood Board) ===================== -->
+  <div class="modal" data-image-modal hidden>
+    <div class="modal__dialog modal__dialog--image" role="dialog" aria-modal="true" aria-label="Bild vergrössert">
+      <button type="button" class="modal__close" data-modal-close aria-label="Bild schliessen">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <div class="modal__video-wrapper">
-        <iframe src="" title="Video-Player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-      </div>
+      <img src="" alt="" class="modal__image" data-image-modal-img>
     </div>
   </div>
 

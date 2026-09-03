@@ -202,3 +202,31 @@ function updateFooterYear() {
     el.textContent = String(currentYear);
   });
 }
+(function () {
+  var trigger = document.querySelector('[data-image-trigger]');
+  var modal = document.querySelector('[data-image-modal]');
+  if (!trigger || !modal) return;
+
+  var img = modal.querySelector('[data-image-modal-img]');
+  var closeBtn = modal.querySelector('[data-modal-close]');
+
+  function openModal() {
+    img.src = trigger.getAttribute('data-image-src');
+    img.alt = trigger.getAttribute('data-image-alt') || '';
+    modal.hidden = false;
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    img.src = '';
+  }
+
+  trigger.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+})();
