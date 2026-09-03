@@ -482,6 +482,13 @@ html[data-theme="light"] .hero__logo--dark { display: none; }
   line-height: 1.4;
 }
 
+.hero__intro-highlight {
+  display: inline-block;
+  margin-top: 0.2em;
+  font-size: 1.4em;
+  color: var(--color-primary);
+}
+
 .hero__text {
   max-width: 640px;
   margin-inline: auto;
