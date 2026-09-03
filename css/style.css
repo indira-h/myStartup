@@ -349,6 +349,24 @@ p {
 html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
 html[data-theme="dark"] .theme-toggle .icon-moon { display: inline-flex; }
 
+/* Logo: helles Logo im Light-Mode, dunkles Logo im Dark-Mode */
+.brand__logo {
+  height: 40px;
+  width: auto;
+}
+.brand__logo--dark { display: none; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .brand__logo--light { display: none; }
+  html:not([data-theme="light"]) .brand__logo--dark { display: block; }
+}
+
+html[data-theme="dark"] .brand__logo--light { display: none; }
+html[data-theme="dark"] .brand__logo--dark { display: block; }
+
+html[data-theme="light"] .brand__logo--light { display: block; }
+html[data-theme="light"] .brand__logo--dark { display: none; }
+
 /* Mobile Menü-Button (Hamburger) */
 .nav-toggle {
   display: inline-flex;
