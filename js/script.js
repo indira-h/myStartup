@@ -72,17 +72,26 @@ function initMobileNav() {
   const mainNav = document.querySelector("[data-main-nav]");
   if (!navToggle || !mainNav) return;
 
+  // Zentrale Funktion für Öffnen/Schliessen: setzt alle nötigen Attribute an
+  // einer Stelle (Menü, Button, aria-label) und sperrt zusätzlich das
+  // Scrollen im Hintergrund, solange das Menü offen ist – genau wie beim
+  // Bild-/Video-Modal weiter unten in dieser Datei.
+  function setOpen(isOpen) {
+    mainNav.setAttribute("data-open", String(isOpen));
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Menü schliessen" : "Menü öffnen");
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }
+
   navToggle.addEventListener("click", () => {
     const isOpen = mainNav.getAttribute("data-open") === "true";
-    mainNav.setAttribute("data-open", String(!isOpen));
-    navToggle.setAttribute("aria-expanded", String(!isOpen));
+    setOpen(!isOpen);
   });
 
   // Menü schliessen, sobald ein Link angeklickt wird (z. B. bei Sprungmarken).
   mainNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      mainNav.setAttribute("data-open", "false");
-      navToggle.setAttribute("aria-expanded", "false");
+      setOpen(false);
     });
   });
 
@@ -90,8 +99,7 @@ function initMobileNav() {
   // damit es nicht "offen" hängen bleibt, wenn man das Fenster verkleinert.
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 900) {
-      mainNav.setAttribute("data-open", "false");
-      navToggle.setAttribute("aria-expanded", "false");
+      setOpen(false);
     }
   });
 }

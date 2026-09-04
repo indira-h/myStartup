@@ -254,8 +254,29 @@ p {
   display: flex;
   align-items: center;
   background-color: var(--color-header-bg);
-  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
+}
+
+/* -----------------------------------------------------------------------------
+   WICHTIGER BUGFIX (Mobile): Der Weichzeichner-Effekt hinter dem Header läuft
+   über ein eigenes Pseudo-Element statt direkt über "backdrop-filter" auf
+   .site-header. Grund: "backdrop-filter" (genau wie "transform", "filter"
+   oder "perspective") macht ein Element zum sogenannten "containing block"
+   für alle Nachfahren mit position:fixed. Das mobile Navigationsmenü
+   (.main-nav weiter unten) ist genau so ein fixiertes Element und liegt
+   verschachtelt IN .site-header – dadurch wurde es fälschlicherweise nur
+   relativ zur 72px hohen Header-Box positioniert statt relativ zum ganzen
+   Bildschirm. Ergebnis: Das Menü bekam keine echte Höhe/keinen deckenden
+   Hintergrund mehr, und der Seiteninhalt schien dahinter "durchzuscheinen"
+   (das schief aussehende Layout im Hell-/Dunkel-Modus auf dem Handy).
+   -------------------------------------------------------------------------- */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: -1;
 }
 
 .site-header .container {
@@ -408,6 +429,36 @@ html[data-theme="light"] .hero__logo--dark { display: none; }
   height: 22px;
 }
 
+.nav-toggle,
+.theme-toggle,
+.main-nav a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle:active {
+  transform: scale(0.92);
+}
+
+/* Hamburger-Icon verwandelt sich beim Öffnen in ein "X" (angesteuert über
+   aria-expanded, das js/script.js beim Klick setzt) – kein zusätzliches
+   Markup/JS nötig, rein CSS. */
+.nav-toggle svg line {
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+  transform-origin: 12px 12px;
+}
+
+.nav-toggle[aria-expanded="true"] svg line:nth-of-type(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] svg line:nth-of-type(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] svg line:nth-of-type(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 
 /* -----------------------------------------------------------------------------
    7. BUTTONS & LINKS
@@ -457,8 +508,18 @@ html[data-theme="light"] .hero__logo--dark { display: none; }
    8. HERO-BEREICH (Firmenname & Claim, siehe Scribble oberste zwei Balken)
    -------------------------------------------------------------------------- */
 .hero {
-  padding-block: clamp(2rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+  padding-block: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 2vw, 1.5rem);
   text-align: center;
+}
+
+/* Bugfix/Feinschliff: Der Abschnitt mit den 4 Ordner-Kacheln direkt nach dem
+   Hero hatte zusätzlich zum Hero-Innenabstand noch seinen eigenen (recht
+   grossen) oberen Innenabstand von .section – zusammen ergab das auf dem
+   Handy eine auffällig grosse, leere Lücke zwischen dem letzten Hero-Text
+   und den Kacheln. Nur für DIESEN einen Übergang wird der obere Abstand
+   reduziert, alle anderen .section-Abstände auf der Seite bleiben gleich. */
+.hero + .section {
+  padding-top: clamp(0.5rem, 2vw, 1.5rem);
 }
 
 .hero__name {
@@ -983,12 +1044,19 @@ html[data-theme="light"] .hero__logo--dark { display: none; }
   transform: translateY(0);
   visibility: visible;
   pointer-events: auto;
+  box-shadow: var(--shadow-md);
 }
 
 .main-nav a {
-  padding: 0.9rem 0.5rem;
+  padding: 1.1rem 0.75rem;
   border-bottom: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: var(--radius-sm);
+  font-size: 1.05rem;
+}
+
+.main-nav a:active {
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary);
 }
 
 .folder-grid,
