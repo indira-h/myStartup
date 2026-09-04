@@ -370,6 +370,12 @@ html[data-theme="light"] .brand__logo--dark { display: none; }
   color: var(--color-text);
   cursor: pointer;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
+  /* Liegt IMMER über dem Absperrband (.corner-tape, z-index 55), egal wie
+     genau sich die beiden bei unterschiedlichen Fensterbreiten überlappen –
+     position:relative ist nötig, damit z-index bei einem sonst statisch
+     positionierten Button überhaupt wirkt. */
+  position: relative;
+  z-index: 60;
 }
 
 .theme-toggle:hover {
@@ -457,6 +463,59 @@ html[data-theme="light"] .hero__logo--dark { display: none; }
 
 .nav-toggle[aria-expanded="true"] svg line:nth-of-type(3) {
   transform: translateY(-6px) rotate(-45deg);
+}
+
+/* -----------------------------------------------------------------------------
+   ABSPERRBAND-DEKO (images/band.png)
+   -----------------------------------------------------------------------------
+   Hängt oben rechts an der Navigation und bleibt beim Scrollen fix an Ort
+   und Stelle stehen – deshalb position:fixed relativ zum Bildschirm statt
+   an einen einzelnen Seitenabschnitt gebunden. Das <div class="corner-tape">
+   dafür wird zentral in js/script.js erzeugt und in JEDE Seite eingefügt
+   (genau wie css/style.css gilt auch js/script.js für die ganze Website),
+   damit es auf allen Unterseiten gleich erscheint, ohne dass man es in
+   jeder HTML-Datei einzeln nachtragen muss.
+
+   z-index bewusst GRÖSSER als .site-header (50): das Band liegt sichtbar
+   ÜBER der Navigation und wirkt so, als wäre es direkt an die obere rechte
+   Ecke der Navigationsleiste geklebt – nicht dahinter versteckt.
+
+   Das Bild (images/band.png) ist bewusst so zugeschnitten, dass die
+   Streifen direkt am oberen Bildrand beginnen (kein Leerraum mehr davor)
+   UND bereits im richtigen Winkel liegen – deshalb hier bewusst KEIN
+   zusätzliches CSS-transform:rotate() mehr: jede Drehung um die Ecke
+   verschiebt die linke Bildhälfte rechnerisch nach unten und riss genau
+   die Lücke am oberen Rand auf, die vorher störte. Mit top:0 und ohne
+   Rotation liegt die oberste Bildzeile jetzt exakt auf dem Bildschirmrand.
+
+   Auf sehr schmalen Handy-Breiten ist neben Hamburger- und Theme-Button
+   kein Platz mehr; dort bleibt das Band deshalb ausgeblendet. */
+.corner-tape {
+  position: fixed;
+  top: 0;
+  right: -3rem;
+  z-index: 55;
+  width: clamp(320px, 54vw, 540px);
+  aspect-ratio: 700 / 400;
+  background-image: url("../images/band.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.95;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .corner-tape {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  .corner-tape {
+    right: -2.75rem;
+    width: clamp(480px, 40vw, 720px);
+  }
 }
 
 

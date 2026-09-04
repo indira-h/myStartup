@@ -11,6 +11,7 @@
      3. Video-Modal (Lightbox für die zwei Video-Thumbnails)
      4. Aktuellen Menüpunkt hervorheben (aria-current)
      5. Footer-Jahr automatisch aktuell halten
+     6. Absperrband-Deko an der Navigation (auf jeder Seite)
 
    HINWEIS: Der Dark/Light-Mode-Teil ganz unten läuft NICHT hier, sondern als
    kleines Inline-Script im <head> jeder Seite (siehe Kommentar dort). Das ist
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initVideoModal();
   highlightCurrentNavLink();
   updateFooterYear();
+  initCornerTape();
 });
 
 
@@ -209,6 +211,23 @@ function updateFooterYear() {
   yearElements.forEach((el) => {
     el.textContent = String(currentYear);
   });
+}
+
+
+/* -----------------------------------------------------------------------------
+   6. ABSPERRBAND-DEKO AN DER NAVIGATION (auf jeder Seite)
+   -----------------------------------------------------------------------------
+   Fügt einmal zentral das <div class="corner-tape"> ein (Styling und
+   Hintergrundbild stecken komplett in css/style.css). So erscheint das
+   Absperrband auf JEDER Seite an derselben Stelle, ohne dass man es in
+   jede HTML-Datei einzeln kopieren muss – ändert sich das Design später,
+   reicht eine Anpassung hier bzw. in style.css.
+   -------------------------------------------------------------------------- */
+function initCornerTape() {
+  const tape = document.createElement("div");
+  tape.className = "corner-tape";
+  tape.setAttribute("aria-hidden", "true");
+  document.body.appendChild(tape);
 }
 (function () {
   var trigger = document.querySelector('[data-image-trigger]');
